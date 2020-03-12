@@ -2,6 +2,15 @@ zip-promise
 ===
 > Promise archive wrapper
 
+https://www.npmjs.com/package/zip-promise
+
+https://github.com/warlock/zip-promise
+
+Install
+```sh
+npm i zip-promise -S
+```
+
 Example compressing file: 
 ```js
   const zip = require('zip-promise')
