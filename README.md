@@ -17,8 +17,25 @@ Example compressing file:
   main()
 ```
 
+Example compressing folder: 
+```js
+  const zip = require('zip-promise')
+
+  async function main () {
+    try {
+      await zip.folder(process.cwd() + '/folder', process.cwd() + '/package.zip')
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  main()
+```
+
+
+Based in https://www.archiverjs.com
+
 ## Next objectives:
-* Compress folder
 * Decompress files
 * Tests
 

@@ -32,3 +32,31 @@ export function file(fileIn: PathLike, fileOut: PathLike, levelCompression: Numb
     })
   })
 }
+
+export function folder(folderIn: PathLike, fileOut: PathLike, levelCompression: Number = 9): Promise<ResponseFile> {
+  return new Promise((resolve, reject) => {
+    access(folderIn, constants.F_OK, notExistingError => {
+      if (notExistingError) return reject(notExistingError)
+
+      const output = createWriteStream(fileOut)
+
+      output.on('close', () => {
+        resolve({ pointer: archive.pointer() })
+      })
+
+      const archive = archiver('zip', {
+        zlib: { level: levelCompression }
+      })
+
+      archive.on('error', error => {
+        reject(error)
+      })
+
+      archive.pipe(output)
+
+      archive.directory(folderIn, false)
+
+      archive.finalize()
+    })
+  })
+}
