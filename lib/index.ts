@@ -1,4 +1,5 @@
 import * as archiver from 'archiver'
+import * as path from 'path'
 import { createWriteStream, access, PathLike, constants } from 'fs'
 
 interface ResponseFile {
@@ -26,7 +27,9 @@ export function file(fileIn: PathLike, fileOut: PathLike, levelCompression: Numb
 
       archive.pipe(output)
 
-      archive.file(fileIn)
+      const file = path.parse(fileIn.toString())
+
+      archive.file(fileIn, { name: file.base })
 
       archive.finalize()
     })
