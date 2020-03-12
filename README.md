@@ -4,7 +4,17 @@ zip-promise
 
 Example compressing file: 
 ```js
-  await zip.file(process.cwd() + '/file.csv', process.cwd() + '/package.zip')
+  const zip = require('zip-promise')
+
+  async function main () {
+    try {
+      await zip.file(process.cwd() + '/file.csv', process.cwd() + '/package.zip')
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  main()
 ```
 
 ## Next objectives:
