@@ -1,0 +1,42 @@
+{
+  "name": "zip-promise",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "type": "commonjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "test": "cd test && npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/warlock/zip-promise.git"
+  },
+  "bugs": {
+    "url": "https://github.com/warlock/zip-promise/issues"
+  },
+  "keywords": [
+    "zip",
+    "folder",
+    "file",
+    "compress",
+    "decompress",
+    "archive",
+    "promise",
+    "async",
+    "await",
+    "typescript"
+  ],
+  "author": "Josep Subils Rigau <josep@js.gl> (http://js.gl)",
+  "license": "MIT",
+  "dependencies": {
+    "archiver": "^3.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^13.9.0",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.8.3"
+  }
+}
